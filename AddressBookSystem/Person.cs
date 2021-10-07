@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace AddressBookSystem
 {
+    // UC-2: Ability to add a new contact in the address book
     class Person
     {
         string firstName, lastName, city, state, address, email;
         int pinCode;
         long phoneNum;
-        
+
         // Constructor to initialize the person details variables
         public Person(string firstName, string lastName, string city, string state, string address, string email, int pinCode, long phoneNum)
         {
@@ -51,9 +52,17 @@ namespace AddressBookSystem
                 Console.WriteLine();
                 personList.Add(new Person(firstName, lastName, city, state, address, email, pincode, phoneNum));
             }
+        }
 
+        // Adding new contact details
+        public static void AddNewContact(List<Person> personList)
+        {
+            personList.Add(new Person("ABC", "XYZ", "Bengaluru", "Karnataka", "Hoodi","abc@xyz.com", 444555, 9998887771));
+        }
+        
             // Displaying person details
-
+            public static void DisplayContactDetails(List<Person> personList) 
+            { 
                 for (int i = 0; i < personList.Count; i++)
                 {
                     Console.Write("\n" + "First Name: " + personList[i].firstName + "\n");
