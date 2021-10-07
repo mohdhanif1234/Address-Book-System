@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBookSystem
 {
-    // UC-3: To edit a particular contact from the given list of contact details from the given address book
+    // UC-4: To delete a particular contact from the given list of contact details from the given address book
     class Person
     {
         string firstName, lastName, city, state, address, email;
@@ -124,6 +124,34 @@ namespace AddressBookSystem
                             break;
                     }
                     Console.WriteLine();
+                    Console.WriteLine("The new list after editing is: ");
+                    DisplayContactDetails(personList);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("{0} is not present in the list", FName);
+                    Console.WriteLine();
+                    Console.WriteLine("The original list is:");
+                    DisplayContactDetails(personList);
+                }
+            }
+        }
+
+        // Deleting a particular person's contact details from the current address book
+        public static void DeleteFromList(List<Person> personList,string FName) 
+        {
+            int index = -1;
+            for (int i = 0; i < personList.Count; i++)
+            {
+                if (personList[i].firstName == FName)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("{0} is present in the list", FName);
+                    Console.WriteLine();
+                    index = i;
+                    personList.RemoveAt(index);
                     Console.WriteLine("The new list after editing is: ");
                     DisplayContactDetails(personList);
                     break;
